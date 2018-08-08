@@ -1,0 +1,71 @@
+import csv
+
+
+
+def create_image_dict(open_csv_file):
+    '''(file) -> dict
+    The open csv file has the format:
+    filename,location,date,caption,keywords,keywords, ...
+    Return a dictionary with key filename and values [location, date, caption]
+    '''
+    d = {}
+    csv_reader = csv.reader(open_csv_file)
+    for line in csv_reader:
+        d[line[0]] = line[1:4]
+    return d
+
+
+        
+def create_date_dict(image_dict):
+    '''(dict) -> dict
+    Given an image dictionary, return a new dictionary
+    where the key is a date and the value  is a list
+    of filenames of images taken on that date.
+    
+    >>> d = {'image1.jpg': ['UTSC', '2017-11-03','Happy Friday']}
+    >>> date_d = create_date_dict(d)
+    >>> date_d == {'2017-11-03': ['image1.jpg']}
+    True
+    '''
+    date_dict = {}
+    for (key, value) in image_dict.items():
+        # if the date is already a key in the date dictionary
+        if value[1] in date_dict:
+            # append the filename to the filename list
+            date_dict[value[1]].append(key)
+        else:
+            # the date is not yet a key in the date dictionary
+            # create a new filename list with the filename
+            date_dict[value[1]] = [key]
+        
+    return date_dict
+
+
+def sorted_images(image_dict):
+    '''(dict) -> list of str
+    Given an image dictionary return a list of the filenames
+    sorted by date. 
+    
+    >>> d = {'image1.jpg': ['UTSC', '2017-11-03','Happy Friday'], \
+    'image2.jpg': ['UTSC', '2017-11-04', 'Happy Sat.']}
+    >>> sorted_images(d)    
+    ['image1.jpg', 'image2.jpg']
+    '''
+    # create the list of filenames to return 
+    file_list = []
+    # get a date dictionary
+    date_dict = create_date_dict(image_dict)
+    
+    # get a list of the dates from the date dictionary
+    sorted_dates_list = list(date_dict.keys())
+    # sort the dates
+    sorted_dates_list.sort()
+    
+    # go through the sorted date list and get the corresponding
+    # filenames to add to the filename list in order
+    for date in sorted_dates_list:
+        file_list = file_list + date_dict[date]
+
+    return file_list
+
+        

@@ -1,0 +1,85 @@
+import doctest
+
+def storm_category(speed):
+	'''(int) -> int 
+	Return the category of the the wind speed belongs to.  
+	>>> storm_category(100)
+	0
+	>>> storm_category(130)
+	1
+	>>> storm_category(165)
+	2
+	>>> storm_category(190)
+	3
+	>>> storm_category(220)
+	4
+	>>> storm_category(260)
+	5
+	'''
+	
+	if speed >= 252:
+		return 5
+	elif speed >= 209:
+		return 4
+	elif speed >= 178:
+		return 3
+	elif speed >= 154:
+		return 2
+	elif speed >= 119:
+		return 1
+	else:
+		return 0
+	
+def category_warning(category):
+	'''(int) -> string 
+	Return a warning message for the storm associated 
+	with the given storm category. 
+	>>> category_warning(0)
+	'Not a major threat.'
+	>>> category_warning(1)
+	'Very dangerous winds will produce some damage.'
+	>>> category_warning(2)
+	'Extremely dangerous winds will cause extensive damage.'
+	>>> category_warning(3)
+	'Devastating damage will occur.'
+	>>> category_warning(4)
+	'Catastrophic damage will occur.'
+	>>> category_warning(5)
+	'Cataclysmic damage will occur.'
+	'''
+	if category == 0:
+		return 'Not a major threat.'
+	if category == 1:
+		return '''Very dangerous winds will produce some damage.'''
+	if category == 2:
+		return '''Extremely dangerous winds will cause extensive damage.'''
+	if category == 3:
+		return 'Devastating damage will occur.'
+	if category == 4:
+		return 'Catastrophic damage will occur.'
+	if category == 5:
+		return 'Cataclysmic damage will occur.'
+
+def warning(speed):
+	'''(int) -> str
+	Given a storm wind speed, return the associated warning 
+	message.
+	>>> warning(90)
+	'Not a major threat.'
+	>>> warning(130)
+	'Very dangerous winds will produce some damage.'
+	>>> warning(165)
+	'Extremely dangerous winds will cause extensive damage.'
+	>>> warning(199)
+	'Devastating damage will occur.'
+	>>> warning(225)
+	'Catastrophic damage will occur.'
+	>>> warning(280)
+	'Cataclysmic damage will occur.'
+	'''    
+	# Requirement: this function must be one line!
+	return category_warning(storm_category(speed))
+	
+if __name__ == '__main__':
+	
+	doctest.testmod(verbose=True)

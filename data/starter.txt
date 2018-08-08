@@ -1,0 +1,38 @@
+def create_image_dict(open_csv_file):
+    '''(file) -> dict
+    
+    The open csv file has the format:
+    filename,location,date,caption,keywords,keywords, ...
+    Return a dictionary with key filename and values [location, date, caption]
+    '''
+    pass
+
+        
+def create_date_dict(image_dict):
+    '''(dict) -> dict
+    
+    Given an image dictionary, return a new dictionary
+    where the key is a date and the value  is a list
+    of filenames of images taken on that date.
+    
+    >>> d = {'image1.jpg': ['UTSC', '2017-11-03','Happy Friday']}
+    >>> date_d = create_date_dict(d)
+    >>> date_d == {'2017-11-03': ['image1.jpg']}
+    True
+    '''
+    pass
+
+
+def sorted_images(image_dict):
+    '''(dict) -> list of str
+    
+    Given an image dictionary return a list of the filenames
+    sorted by date. 
+    
+    >>> d = {'image1.jpg': ['UTSC', '2017-11-03','Happy Friday'], \
+    'image2.jpg': ['UTSC', '2017-11-04', 'Happy Sat.']}
+    >>> sorted_images(d)    
+    ['image1.jpg', 'image2.jpg']
+    '''
+    pass
+

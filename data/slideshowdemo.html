@@ -1,0 +1,65 @@
+	<html>
+		<head>
+			<style>
+body {
+	background: black;
+	text-align: center;
+	color: white;
+	}			
+#slideshow { 
+	margin: 50px auto;
+    position: relative; 
+	left: auto;
+	right: auto;
+	width: 600px; 
+    height: 400px; 
+    padding: 10px; 
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.96); 
+}
+
+#slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+
+img {
+	left-margin: auto;
+	right-margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+	</style>		
+
+		<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			
+		$(document).ready(function(){
+			$("#slideshow > div:gt(0)").hide();
+
+			setInterval(function() { 
+			  $('#slideshow > div:first')
+			    .fadeOut(1000)
+			    .next()
+			    .fadeIn(1000)
+			    .end()
+			    .appendTo('#slideshow');
+			},  2000);
+		});
+		</script>
+		
+		</head>
+<body>
+	<div id="slideshow">
+		<div><img src="images/sunset1.jpg"><br><p>Muskoka Sunset!</p></div>
+		<div><img src="images/dog.jpg"><br><p>A Dog's Life</p></div>
+		<div><img src="images/coolguy.jpg"><br><p>Cool guy.</p></div>
+		<div><img src="images/skater.jpg"><br><p>Shea skating.</p></div>
+		<div><img src="images/sunrise.jpg"><br><p>Lake Ontario Sunrise!</p></div>
+		<div><img src="images/sunset2.jpg"><br><p>Another Muskoka Sunset!</p></div>
+	</div>
+</body>
+</html>

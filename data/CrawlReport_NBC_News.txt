@@ -1,0 +1,47 @@
+Name: Vincent Landolfi
+UtorID: 1002350733
+News Site Crawled: NBC_News
+Fetch Statistics
+================
+# fetches attempted: 19970
+# fetches succeeded: 17746
+# fetches aborted: 1864
+# fetches failed: 360
+
+
+Outgoing URLs:
+================
+Total URLs extracted: 125972
+# unique URLs extracted: 124178
+# unique URLs within News Site: 25614
+# unique URLs outside News Site: 98564
+
+
+Status Codes:
+================
+403: 239
+404: 76
+500: 6
+502: 39
+200: 17746
+301: 308
+302: 1556
+
+
+File Sizes: 
+================
+<1KB: 2
+1KB ~ <10KB: 2
+10KB ~ <100KB: 8748
+100KB ~ <1MB: 8941
+>=1MB: 52
+
+
+Content Types:
+================
+image/png: 1
+text/html: 1390694
+image/svg+xml: 1
+application/manifest+json; charset=utf-8: 1
+image/vnd.microsoft.icon: 1
+text/css: 1
